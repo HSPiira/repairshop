@@ -36,7 +36,7 @@ export const tickets = pgTable("tickets", {
     .references(() => customers.id),
   title: varchar("title").notNull(),
   description: text("description"),
-  status: boolean("status").notNull().default(false),
+  completed: boolean("completed").notNull().default(false),
   tech: varchar("tech").notNull().default("unassigned"),
   // priority: varchar("priority").notNull().default("low"),
   createdAt: timestamp("created_at").notNull().defaultNow(),

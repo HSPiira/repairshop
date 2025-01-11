@@ -27,7 +27,7 @@ export default function TicketForm({ customer, ticket }: Props) {
     customerId: ticket?.customerId ?? customer.id,
     title: ticket?.title ?? "",
     description: ticket?.description ?? "",
-    status: ticket?.status ?? false,
+    completed: ticket?.completed ?? false,
     tech: ticket?.tech ?? "new-ticket@example.com",
   };
 

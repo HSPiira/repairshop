@@ -1,5 +1,6 @@
 import {getCustomers} from "@/lib/queries/getCustomer";
 import {BackButton} from "@/components/BackButton";
+import CustomerForm from "@/app/(rs)/customers/form/CustomerForm";
 
 export default async function customerFormPage({
     searchParams,
@@ -23,9 +24,11 @@ export default async function customerFormPage({
             }
             console.log(customer);
             // put customer form
+            return <CustomerForm customer={customer} />
         }
         else {
             // new customer form
+            return <CustomerForm />
         }
     }
     catch(err){
