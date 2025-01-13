@@ -10,6 +10,7 @@ export default async function customerFormPage({
     try{
         const {customerId} = await searchParams
 
+        // Edit customer form
         if(customerId){
             const customer = await getCustomers(parseInt(customerId));
             if(!customer){
@@ -18,12 +19,12 @@ export default async function customerFormPage({
                         <h2 className="text-2xl mb-2">
                             Customer ID: {customerId} not found
                         </h2>
-                        <BackButton title={"Back"} variant="default"/>
+                        <BackButton title={"Go Back"} variant="default"/>
                     </>
                     )
             }
             console.log(customer);
-            // put customer form
+            // put customer form component
             return <CustomerForm customer={customer} />
         }
         else {
