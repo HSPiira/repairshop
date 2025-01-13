@@ -33,8 +33,8 @@ export function TextAreaWithLabel<S>({
                     <Textarea
                         id={nameInSchema}
                         className={className}
-                        {...field}
                         {...otherProps}
+                        {...field}
                     />
                 </FormControl>
                 <FormMessage/>
