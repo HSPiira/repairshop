@@ -1,0 +1,44 @@
+'use client'
+
+import {useFormContext} from "react-hook-form";
+
+import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import {Textarea} from "@/components/ui/textarea";
+import {TextareaHTMLAttributes} from "react";
+
+type Props<S> = {
+    fieldTitle: string,
+    nameInSchema: keyof S & string,
+    className?: string
+
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+export function TextAreaWithLabel<S>({
+    fieldTitle, nameInSchema, className, ...otherProps
+}: Props<S>) {
+    const form = useFormContext();
+    return (
+        <FormField
+            name={nameInSchema}
+            control={form.control}
+        render={({field}) => (
+            <FormItem>
+                <FormLabel
+                    className="text-base"
+                    htmlFor={nameInSchema}
+                >
+                    {fieldTitle}
+                </FormLabel>
+                <FormControl>
+                    <Textarea
+                        id={nameInSchema}
+                        className={className}
+                        {...otherProps}
+                        {...field}
+                    />
+                </FormControl>
+                <FormMessage/>
+            </FormItem>
+        )}/>
+    )
+}
